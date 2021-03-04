@@ -11,7 +11,6 @@ module.exports = class extends Base {
     } else {
       start++;
     }
-    console.log(start);
     let ip = await this.model('pan_proxy').order('id desc').limit(start,1).select();
     return this.json(ip[0]);
   }
