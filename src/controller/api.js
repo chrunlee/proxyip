@@ -8,6 +8,8 @@ module.exports = class extends Base {
     let total = await this.model('pan_proxy').count();
     if (start >= total - 1) { 
       start = 1;
+    } else {
+      start++;
     }
     let ip = await this.model('pan_proxy').order('id asc').limit(start,1).find();
     return this.json(ip);
